@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberFinder - Social Media Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo-icon-small"></div>
+                Cyber<span>Finder</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="#start">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>We Help To Protect Your <span class="highlight">Information</span> From Hackers</h1>
+                    <p class="hero-text">Advanced social media intelligence platform to secure your digital presence and monitor your online footprint across 300+ platforms.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg">Start Free Trial</button>
+                        <button class="btn btn-outline-light btn-lg ms-3">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <i class="fas fa-shield-alt security-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Security Services</h2>
+                <p>Comprehensive digital protection for your online presence</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Profile Security</h3>
+                        <p>Monitor and protect your social media accounts from unauthorized access and impersonation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card active">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Digital Footprint</h3>
+                        <p>Track and analyze your online presence across multiple platforms and networks.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Identity Protection</h3>
+                        <p>Prevent identity theft and protect your personal information from cyber threats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="start">
+        <div class="container">
+            <div class="search-container">
+                <h2>Start Your Security Check</h2>
+                <p>Enter a username to scan across multiple platforms</p>
+                <div class="search-box">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="username" placeholder="Enter username to search...">
+                        <button class="btn btn-primary" id="searchBtn">
+                            <i class="fas fa-search"></i> Scan Now
+                        </button>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <i class="fas fa-user-check"></i>
+                        <span id="foundCount">0</span>
+                        <small>Profiles Found</small>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-globe"></i>
+                        <span id="totalChecked">0</span>
+                        <small>Platforms Checked</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div id="results" style="display: none;">
+                <h3>Results for <span class="highlight" id="searchedUsername"></span></h3>
+                
+                <div class="platform-category" id="importantPlatforms">
+                    <h4><i class="fas fa-star"></i> Important Platforms</h4>
+                    <div class="platform-list"></div>
+                </div>
+                
+                <div class="platform-category" id="secondaryPlatforms">
+                    <h4><i class="fas fa-certificate"></i> Secondary Platforms</h4>
+                    <div class="platform-list"></div>
+                </div>
+                
+                <div class="platform-category" id="otherPlatforms">
+                    <h4><i class="fas fa-circle"></i> Other Platforms</h4>
+                    <div class="platform-list"></div>
+                </div>
+                
+                <div class="clients-section">
+                    <div class="section-header text-center">
+                        <h4 class="text-primary mb-4">Industry Leaders</h4>
+                        <div class="client-list">
+                            <div class="client-name fire-text">Sujitvinu R R</div>
+                            <div class="client-name fire-text">Saaivishrudh S</div>
+                            <div class="client-name fire-text">Pravin Kumar K</div>
+                            <div class="client-name fire-text">Pranav S K</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="text-center" style="display: none;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Scanning platforms for digital footprints...</p>
+            </div>
+
+            <div id="error" class="alert alert-danger" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-glow"></div>
+                    </div>
+                    <h3 class="member-name fire-text">Sujitvinu R R</h3>
+                    <p class="member-role">Team Lead</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-glow"></div>
+                    </div>
+                    <h3 class="member-name fire-text">Saaivishrudh S</h3>
+                    <p class="member-role">Security Expert</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-glow"></div>
+                    </div>
+                    <h3 class="member-name fire-text">Pravin Kumar K</h3>
+                    <p class="member-role">Developer</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-glow"></div>
+                    </div>
+                    <h3 class="member-name fire-text">Pranav S K</h3>
+                    <p class="member-role">Developer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Map Background -->
+    <div class="world-map-bg">
+        <div class="connection-lines"></div>
+        <div class="glow-points"></div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>About CyberFinder</h2>
+                <p>Advanced Social Media Intelligence Platform</p>
+            </div>
+            <div class="widget-grid">
+                <div class="widget-card">
+                    <div class="widget-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <h3>Profile Discovery</h3>
+                    <p>Instantly scan and locate social media profiles across 300+ platforms using advanced search algorithms.</p>
+                    <div class="widget-stats">
+                        <div class="stat">
+                            <span>300+</span>
+                            <small>Platforms</small>
+                        </div>
+                        <div class="stat">
+                            <span>Real-time</span>
+                            <small>Scanning</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget-card">
+                    <div class="widget-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Security Analysis</h3>
+                    <p>Comprehensive security assessment of discovered profiles to identify potential vulnerabilities.</p>
+                    <div class="widget-stats">
+                        <div class="stat">
+                            <span>24/7</span>
+                            <small>Monitoring</small>
+                        </div>
+                        <div class="stat">
+                            <span>100%</span>
+                            <small>Accuracy</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget-card">
+                    <div class="widget-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3>Digital Footprint</h3>
+                    <p>Map and analyze your complete online presence with detailed visibility reports.</p>
+                    <div class="widget-stats">
+                        <div class="stat">
+                            <span>Full</span>
+                            <small>Coverage</small>
+                        </div>
+                        <div class="stat">
+                            <span>Smart</span>
+                            <small>Analytics</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Join Our Cybersecurity Community</h2>
+                <p>Connect with cybersecurity experts and stay updated</p>
+            </div>
+            <div class="community-grid">
+                <a href="https://www.reddit.com/r/cybersecurity/" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-reddit"></i>
+                    </div>
+                    <h3>Reddit</h3>
+                    <p>Join r/cybersecurity for discussions and updates</p>
+                    <div class="member-count">
+                        <i class="fas fa-users"></i>
+                        <span>1.2M+ Members</span>
+                    </div>
+                </a>
+
+                <a href="https://discord.gg/cybersecurity" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Discord</h3>
+                    <p>Join our active cybersecurity community</p>
+                    <div class="member-count">
+                        <i class="fas fa-users"></i>
+                        <span>50K+ Members</span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/cybersecurity_channel" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3>Telegram</h3>
+                    <p>Get real-time security alerts and updates</p>
+                    <div class="member-count">
+                        <i class="fas fa-users"></i>
+                        <span>100K+ Members</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/topics/cybersecurity" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Explore open-source security tools</p>
+                    <div class="member-count">
+                        <i class="fas fa-code-branch"></i>
+                        <span>10K+ Projects</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <!-- World map animation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const glowPoints = document.querySelector('.glow-points');
+            const worldMapPoints = [
+                {x: 20, y: 30}, {x: 35, y: 25}, {x: 50, y: 20}, {x: 65, y: 30},
+                {x: 25, y: 45}, {x: 45, y: 40}, {x: 60, y: 45}, {x: 75, y: 35},
+                {x: 30, y: 60}, {x: 50, y: 55}, {x: 70, y: 60}, {x: 80, y: 50},
+                {x: 40, y: 70}, {x: 55, y: 75}, {x: 65, y: 65}, {x: 85, y: 70}
+            ];
+
+            // Create glowing points
+            worldMapPoints.forEach(point => {
+                const glowPoint = document.createElement('div');
+                glowPoint.className = 'glow-point';
+                glowPoint.style.left = `${point.x}%`;
+                glowPoint.style.top = `${point.y}%`;
+                glowPoints.appendChild(glowPoint);
+            });
+
+            // Animate connections
+            function animateConnections() {
+                const canvas = document.createElement('canvas');
+                canvas.style.position = 'absolute';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.opacity = '0.3';
+                document.querySelector('.connection-lines').appendChild(canvas);
+
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                function draw() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.strokeStyle = '#ff6b00';
+                    ctx.lineWidth = 1;
+
+                    for(let i = 0; i < worldMapPoints.length; i++) {
+                        for(let j = i + 1; j < worldMapPoints.length; j++) {
+                            const distance = Math.hypot(
+                                worldMapPoints[i].x - worldMapPoints[j].x,
+                                worldMapPoints[i].y - worldMapPoints[j].y
+                            );
+                            
+                            if(distance < 30) {
+                                ctx.beginPath();
+                                ctx.moveTo(
+                                    (worldMapPoints[i].x * canvas.width) / 100,
+                                    (worldMapPoints[i].y * canvas.height) / 100
+                                );
+                                ctx.lineTo(
+                                    (worldMapPoints[j].x * canvas.width) / 100,
+                                    (worldMapPoints[j].y * canvas.height) / 100
+                                );
+                                ctx.stroke();
+                            }
+                        }
+                    }
+
+                    requestAnimationFrame(draw);
+                }
+
+                draw();
+            }
+
+            animateConnections();
+        });
+    </script>
+</body>
+</html> 
